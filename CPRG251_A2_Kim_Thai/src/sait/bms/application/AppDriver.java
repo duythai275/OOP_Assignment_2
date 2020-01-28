@@ -7,7 +7,6 @@ public class AppDriver {
 
 		
 		System.out.println ("Thai Dep");
-		System.out.println ("Thai Dep");
 	}
 
 }
