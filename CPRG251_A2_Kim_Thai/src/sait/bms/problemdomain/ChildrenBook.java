@@ -46,6 +46,10 @@ public class ChildrenBook extends Book{
 	public void setFormat(char format) {
 		this.format = format;
 	}
+
+	public String toString() {
+		return "ChildrenBook [authors=" + authors + ", format=" + format + "]";
+	}
 	
 	
 }

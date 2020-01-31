@@ -16,7 +16,6 @@ public class Book {
 	 * @param title
 	 */
 	public Book(long iSBN, double callNumber, int available, int total, String title) {
-		super();
 		ISBN = iSBN;
 		this.callNumber = callNumber;
 		this.available = available;
@@ -84,6 +83,12 @@ public class Book {
 	 */
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+
+	public String toString() {
+		return "Book [ISBN=" + ISBN + ", callNumber=" + callNumber + ", available=" + available + ", total=" + total
+				+ ", title=" + title + "]";
 	}
 	
 	

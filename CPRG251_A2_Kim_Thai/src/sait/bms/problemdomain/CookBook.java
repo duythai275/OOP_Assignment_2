@@ -46,4 +46,9 @@ public class CookBook extends Book {
 	}
 	
 	
+	public String toString() {
+		return "CookBook [publisher=" + publisher + ", diet=" + diet + "]";
+	}
+	
+	
 }
