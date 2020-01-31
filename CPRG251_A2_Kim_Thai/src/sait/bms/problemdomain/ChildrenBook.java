@@ -4,8 +4,6 @@ public class ChildrenBook extends Book{
 	private String authors;
 	private char format;
 	
-	
-	
 	/**
 	 * @param iSBN
 	 * @param callNumber
@@ -34,18 +32,8 @@ public class ChildrenBook extends Book{
 	public char getFormat() {
 		return format;
 	}
-	/**
-	 * @param authors the authors to set
-	 */
-	public void setAuthors(String authors) {
-		this.authors = authors;
+
+	public String toString() {
+		return "ChildrenBook [authors=" + authors + ", format=" + format + "]";
 	}
-	/**
-	 * @param format the format to set
-	 */
-	public void setFormat(char format) {
-		this.format = format;
-	}
-	
-	
 }

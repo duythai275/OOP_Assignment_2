@@ -4,8 +4,6 @@ public class CookBook extends Book {
 	private String publisher;
 	private char diet;
 	
-	
-	
 	/**
 	 * @param iSBN
 	 * @param callNumber
@@ -20,6 +18,7 @@ public class CookBook extends Book {
 		this.publisher = publisher;
 		this.diet = diet;
 	}
+	
 	/**
 	 * @return the publisher
 	 */
@@ -32,18 +31,8 @@ public class CookBook extends Book {
 	public char getDiet() {
 		return diet;
 	}
-	/**
-	 * @param publisher the publisher to set
-	 */
-	public void setPublisher(String publisher) {
-		this.publisher = publisher;
-	}
-	/**
-	 * @param diet the diet to set
-	 */
-	public void setDiet(char diet) {
-		this.diet = diet;
-	}
 	
-	
+	public String toString() {
+		return "CookBook [publisher=" + publisher + ", diet=" + diet + "]";
+	}
 }
