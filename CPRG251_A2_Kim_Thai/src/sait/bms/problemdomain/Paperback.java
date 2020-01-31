@@ -5,7 +5,6 @@ public class Paperback extends Book {
 	private int year;
 	private char genre;
 	
-	
 	/**
 	 * @param iSBN
 	 * @param callNumber
@@ -23,7 +22,6 @@ public class Paperback extends Book {
 		this.year = year;
 		this.genre = genre;
 	}
-	
 	
 	/**
 	 * @return the authors
@@ -43,30 +41,8 @@ public class Paperback extends Book {
 	public char getGenre() {
 		return genre;
 	}
-	/**
-	 * @param authors the authors to set
-	 */
-	public void setAuthors(String authors) {
-		this.authors = authors;
-	}
-	/**
-	 * @param year the year to set
-	 */
-	public void setYear(int year) {
-		this.year = year;
-	}
-	/**
-	 * @param genre the genre to set
-	 */
-	public void setGenre(char genre) {
-		this.genre = genre;
-	}
 
-
-	
 	public String toString() {
 		return "Paperback [authors=" + authors + ", year=" + year + ", genre=" + genre + "]";
 	}
-	
-	
 }

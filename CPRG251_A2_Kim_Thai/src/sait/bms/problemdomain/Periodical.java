@@ -2,8 +2,6 @@ package sait.bms.problemdomain;
 
 public class Periodical extends Book{
 	private char frequency;
-
-	
 	
 	/**
 	 * @param iSBN
@@ -24,14 +22,6 @@ public class Periodical extends Book{
 	public char getFrequency() {
 		return frequency;
 	}
-
-	/**
-	 * @param frequency the frequency to set
-	 */
-	public void setFrequency(char frequency) {
-		this.frequency = frequency;
-	}
-
 	
 	public String toString() {
 		return "Periodical [frequency=" + frequency + "]";

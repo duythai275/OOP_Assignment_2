@@ -7,7 +7,6 @@ public class Book {
 	private int total;
 	private String title;
 	
-	
 	/**
 	 * @param iSBN
 	 * @param callNumber
@@ -22,7 +21,6 @@ public class Book {
 		this.total = total;
 		this.title = title;
 	}
-	
 	
 	/**
 	 * @return the iSBN
@@ -54,42 +52,9 @@ public class Book {
 	public String getTitle() {
 		return title;
 	}
-	/**
-	 * @param iSBN the iSBN to set
-	 */
-	public void setISBN(long iSBN) {
-		ISBN = iSBN;
-	}
-	/**
-	 * @param callNumber the callNumber to set
-	 */
-	public void setCallNumber(double callNumber) {
-		this.callNumber = callNumber;
-	}
-	/**
-	 * @param available the available to set
-	 */
-	public void setAvailable(int available) {
-		this.available = available;
-	}
-	/**
-	 * @param total the total to set
-	 */
-	public void setTotal(int total) {
-		this.total = total;
-	}
-	/**
-	 * @param title the title to set
-	 */
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
 
 	public String toString() {
 		return "Book [ISBN=" + ISBN + ", callNumber=" + callNumber + ", available=" + available + ", total=" + total
 				+ ", title=" + title + "]";
 	}
-	
-	
 }
