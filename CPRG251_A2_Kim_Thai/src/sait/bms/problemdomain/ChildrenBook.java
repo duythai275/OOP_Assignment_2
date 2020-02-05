@@ -13,7 +13,7 @@ public class ChildrenBook extends Book{
 	 * @param authors
 	 * @param format
 	 */
-	public ChildrenBook(long iSBN, double callNumber, int available, int total, String title, String authors,
+	public ChildrenBook(long iSBN, String callNumber, int available, int total, String title, String authors,
 			char format) {
 		super(iSBN, callNumber, available, total, title);
 		this.authors = authors;
