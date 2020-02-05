@@ -14,8 +14,8 @@ public class Book {
 	 * @param total
 	 * @param title
 	 */
-	public Book(long iSBN, double callNumber, int available, int total, String title) {
-		ISBN = iSBN;
+	public Book(long ISBN, double callNumber, int available, int total, String title) {
+		this.ISBN = ISBN;
 		this.callNumber = callNumber;
 		this.available = available;
 		this.total = total;
