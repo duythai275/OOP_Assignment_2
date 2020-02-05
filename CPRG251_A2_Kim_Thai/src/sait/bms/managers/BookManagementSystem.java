@@ -19,16 +19,17 @@ public class BookManagementSystem {
 		
 		int option = 0;
 		
-		System.out.println("Welcome in ABC Book Company: How May We Assist You?");
-		System.out.println("1	Checkout Book");
-		System.out.println("2	Find Books by Title");
-		System.out.println("3	Display Books by Type");
-		System.out.println("4	Produce Random Book List");
-		System.out.println("5	Save & Exit");
-		System.out.println();
+		
 		
 		while (option != 5) {
-	
+			
+			System.out.println("Welcome in ABC Book Company: How May We Assist You?");
+			System.out.println("1	Checkout Book");
+			System.out.println("2	Find Books by Title");
+			System.out.println("3	Display Books by Type");
+			System.out.println("4	Produce Random Book List");
+			System.out.println("5	Save & Exit");
+			System.out.println();
 			
 			System.out.print("Enter option: ");
 			option = input.nextInt();
@@ -77,7 +78,7 @@ public class BookManagementSystem {
 		
 		for (Book book : books) {
 			if (book.getISBN() == isbn) {
-				System.out.println("The book " + book.getTitle() + "has been checked out.");
+				System.out.println("The book \"" + book.getTitle() + "\" has been checked out.");
 				System.out.println("It can be located using a call number: " + book.getCallNumber());
 			}
 		}
