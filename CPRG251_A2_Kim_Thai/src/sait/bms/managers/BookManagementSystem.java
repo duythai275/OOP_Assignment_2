@@ -69,12 +69,18 @@ public class BookManagementSystem {
 	}
 	
 	public void checkBookByIsbn (long isbn) {
+		while ( Long.toString(isbn).length() != 13 ) {
+			System.out.println("Please type 13 digits only");
+			System.out.print("Enter ISBN of book: ");
+			isbn = input.nextLong();
+		} 
+		
 		for (Book book : books) {
 			if (book.getISBN() == isbn) {
 				System.out.println("The book " + book.getTitle() + "has been checked out.");
 				System.out.println("It can be located using a call number: " + book.getCallNumber());
 			}
-		}	
+		}
 	}
 		
 	public void findBookByTitle (String title) {
@@ -131,11 +137,12 @@ public class BookManagementSystem {
 		while( data.hasNextLine() ) {
 			line = data.nextLine();
 			String columns[] = line.split(";");
+			long type = Long.parseLong(columns[0])%10;
 			
-			if ( Long.parseLong(columns[0])%10 == 0 || Long.parseLong(columns[0])%10 == 1 ) {
+			if ( type == 0 || type == 1 ) {
 				books.add(new ChildrenBook(
 						Long.parseLong(columns[0]),
-						Double.parseDouble(columns[1]),
+						columns[1],
 						Integer.parseInt(columns[2]),
 						Integer.parseInt(columns[3]),
 						columns[4],
@@ -143,7 +150,44 @@ public class BookManagementSystem {
 						columns[6].charAt(0)
 						)
 				);
-			} // else if () {}
+			} 
+			else if ( type == 2 || type == 3 ) {
+					books.add(new CookBook(
+							Long.parseLong(columns[0]),
+							columns[1],
+							Integer.parseInt(columns[2]),
+							Integer.parseInt(columns[3]),
+							columns[4],
+							columns[5],
+							columns[6].charAt(0)
+							)
+					);
+			}
+			else if (type == 8 || type == 9 ) {
+				books.add(new Periodical(
+						Long.parseLong(columns[0]),
+						columns[1],
+						Integer.parseInt(columns[2]),
+						Integer.parseInt(columns[3]),
+						columns[4],
+						columns[5].charAt(0)
+						)
+				);
+			}
+			else {
+				books.add(new Paperback(
+						Long.parseLong(columns[0]),
+						columns[1],
+						Integer.parseInt(columns[2]),
+						Integer.parseInt(columns[3]),
+						columns[4],
+						columns[5],
+						Integer.parseInt(columns[6]),
+						columns[7].charAt(0)
+						)
+				);
+			}
+			
 		}
 		data.close();
 	}
