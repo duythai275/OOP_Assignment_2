@@ -1,9 +1,6 @@
-
 package sait.bms.managers;
 
 import sait.bms.problemdomain.*;
-
-
 import java.util.*;
 import java.io.*;
 
@@ -18,17 +15,21 @@ public class BookManagementSystem {
 			
 	public void displayMenu() throws IOException {
 		
+		loadBook();
+		
 		int option = 0;
+		
+		System.out.println("Welcome in ABC Book Company: How May We Assist You?");
+		System.out.println("1	Checkout Book");
+		System.out.println("2	Find Books by Title");
+		System.out.println("3	Display Books by Type");
+		System.out.println("4	Produce Random Book List");
+		System.out.println("5	Save & Exit");
+		System.out.println();
 		
 		while (option != 5) {
 	
-			System.out.println("Welcome in ABC Book Company: How May We Assist You?");
-			System.out.println("1	Checkout Book");
-			System.out.println("2	Find Books by Title");
-			System.out.println("3	Display Books by Type");
-			System.out.println("4	Produce Random Book List");
-			System.out.println("5	Save & Exit");
-			System.out.println();
+			
 			System.out.print("Enter option: ");
 			option = input.nextInt();
 			System.out.println();
@@ -57,7 +58,10 @@ public class BookManagementSystem {
 				produceRandomBook(input.nextInt());
 				break;
 			case 5:
+				System.out.println("Closing ...");
 				break;
+			default:
+				System.out.println("Please select options from 1 to 5");
 			}	
 			
 			System.out.println();
@@ -121,15 +125,24 @@ public class BookManagementSystem {
 		}	
 	}	
   
-  public void loadBook () throws IOException {
-		Scanner data = new Scanner(file);
+	public void loadBook() throws IOException {
+		Scanner data = new Scanner(file); // read the text file
 		String line = "";
 		while( data.hasNextLine() ) {
 			line = data.nextLine();
 			String columns[] = line.split(";");
 			
 			if ( Long.parseLong(columns[0])%10 == 0 || Long.parseLong(columns[0])%10 == 1 ) {
-				
+				books.add(new ChildrenBook(
+						Long.parseLong(columns[0]),
+						Double.parseDouble(columns[1]),
+						Integer.parseInt(columns[2]),
+						Integer.parseInt(columns[3]),
+						columns[4],
+						columns[5],
+						columns[6].charAt(0)
+						)
+				);
 			} // else if () {}
 		}
 		data.close();
