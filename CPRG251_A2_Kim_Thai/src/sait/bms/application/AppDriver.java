@@ -8,7 +8,7 @@ public class AppDriver {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		BookManagementSystem bms = new BookManagementSystem();
-		bms.loadBook();
+		bms.displayMenu();
 	}
 
 }
