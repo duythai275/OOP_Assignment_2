@@ -1,14 +1,14 @@
 package sait.bms.application;
 
+import sait.bms.managers.*;
+import java.io.*;
+
 public class AppDriver {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-
-		
-		System.out.println ("Thai Dep");
-		System.out.println ("Thai hay");
-		System.out.println ("Thai hay");
+		BookManagementSystem bms = new BookManagementSystem();
+		bms.displayMenu();
 	}
 
 }
