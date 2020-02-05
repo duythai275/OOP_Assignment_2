@@ -15,7 +15,7 @@ public class Paperback extends Book {
 	 * @param year
 	 * @param genre
 	 */
-	public Paperback(long iSBN, double callNumber, int available, int total, String title, String authors, int year,
+	public Paperback(long iSBN, String callNumber, int available, int total, String title, String authors, int year,
 			char genre) {
 		super(iSBN, callNumber, available, total, title);
 		this.authors = authors;

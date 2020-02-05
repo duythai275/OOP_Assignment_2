@@ -2,7 +2,7 @@ package sait.bms.problemdomain;
 
 public class Book {
 	private long ISBN;
-	private double callNumber;
+	private String callNumber;
 	private int available;
 	private int total;
 	private String title;
@@ -14,7 +14,7 @@ public class Book {
 	 * @param total
 	 * @param title
 	 */
-	public Book(long ISBN, double callNumber, int available, int total, String title) {
+	public Book(long ISBN, String callNumber, int available, int total, String title) {
 		this.ISBN = ISBN;
 		this.callNumber = callNumber;
 		this.available = available;
@@ -31,7 +31,7 @@ public class Book {
 	/**
 	 * @return the callNumber
 	 */
-	public double getCallNumber() {
+	public String getCallNumber() {
 		return callNumber;
 	}
 	/**
