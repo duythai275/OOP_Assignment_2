@@ -19,8 +19,6 @@ public class BookManagementSystem {
 		
 		int option = 0;
 		
-		
-		
 		while (option != 5) {
 			
 			System.out.println("Welcome in ABC Book Company: How May We Assist You?");
@@ -42,14 +40,15 @@ public class BookManagementSystem {
 				break;
 			case 2: 
 				System.out.print("Enter title to search for: ");
+				input.nextLine();
 				findBookByTitle(input.nextLine());
 				break;
 			case 3:
-				System.out.print("#	Type ");
-				System.out.print("1	Children's Books");
-				System.out.print("2	Cookbooks");
-				System.out.print("3	Paperbacks");
-				System.out.print("4	Periodicals");
+				System.out.println("#	Type ");
+				System.out.println("1	Children's Books");
+				System.out.println("2	Cookbooks");
+				System.out.println("3	Paperbacks");
+				System.out.println("4	Periodicals");
 				System.out.println();
 				System.out.print("Enter type of book: ");
 				displayBookByType(input.nextInt());
@@ -87,48 +86,78 @@ public class BookManagementSystem {
 	public void findBookByTitle (String title) {
 		System.out.println ("Matching books: ");
 		for (Book book : books) {
-			if (book.getTitle() == title) {
-				System.out.printf("%s %-20d%n", "ISBN: ", book.getISBN());
-				System.out.printf("%s %-20f%n", "Call Number: ", book.getCallNumber());
-				System.out.printf("%s %-20d%n", "Available: ", book.getAvailable());
-				System.out.printf("%s %-20d%n", "Total: ", book.getTotal());
-				System.out.printf("%s %-20s%n", "Title: ", book.getTitle());
-//				System.out.printf("%s %-20s%n", "Authors: ", book.getAuthors());
-//				System.out.printf("%s %-20s%n", "Format: ", book.getFormat());
+			if ( book.getTitle().toLowerCase().contains(title.toLowerCase()) ) {
+				System.out.println(book);
 				System.out.println();
 			}
 		}	
 	}
 		
 	public void displayBookByType (int type) {
-		System.out.print ("Enter a frequency (D for Daily, W for Weekly, M for Monthly, B for Biweekly, or Q for Quarterly): ");
-//		input.nextChar();
-		System.out.println ("Matching books: ");
-		for (Book book : books) {
-//			if (book.getType() == type) {
-				System.out.printf("%s %-20d%n", "ISBN: ", book.getISBN());
-				System.out.printf("%s %-20f%n", "Call Number: ", book.getCallNumber());
-				System.out.printf("%s %-20d%n", "Available: ", book.getAvailable());
-				System.out.printf("%s %-20d%n", "Total: ", book.getTotal());
-				System.out.printf("%s %-20s%n", "Title: ", book.getTitle());
-//				System.out.printf("%s %-20s%n", "Frequency: ", );
-				System.out.println();
-//			}
-		}	
+		String category;
+		switch(type) {
+			case 1: 
+				System.out.println("Enter the Format (P for Picture book, E for Early Readers, or C for Chapter book): ");
+				input.nextLine();
+				category = input.nextLine();
+				for ( Book p : books ) {
+					if ( (p.getISBN()%10) == 0 || (p.getISBN()%10) == 1 ) {
+						if ( ((ChildrenBook) p).getFormat() == category.charAt(0) ) {
+							System.out.println(p);
+							System.out.println();
+						}
+					}
+				}
+				break;
+			case 2:
+				System.out.println("Enter the Diet (D for Diabetic, V for Vegetarian, G for Gluten-free, I for International, or N for None): ");
+				input.nextLine();
+				category = input.nextLine();
+				for ( Book p : books ) {
+					if ( (p.getISBN()%10) == 2 || (p.getISBN()%10) == 3 ) {
+						if ( ((CookBook) p).getDiet() == category.charAt(0) ) {
+							System.out.println(p);
+							System.out.println();
+						}
+					}
+				}
+				break;
+			case 3: 
+				System.out.println("Enter the Genre (A for Adventure, D for Drama, E for Education, C for Classic, F for Fantasy, or S for Science Fiction): ");
+				input.nextLine();
+				category = input.nextLine();
+				for ( Book p : books ) {
+					if ( (p.getISBN()%10) == 4 || (p.getISBN()%10) == 5 || (p.getISBN()%10) == 6 || (p.getISBN()%10) == 7 ) {
+						if ( ((Paperback) p).getGenre() == category.charAt(0) ) {
+							System.out.println(p);
+							System.out.println();
+						}
+					}
+				}
+				break;
+			case 4: 
+				System.out.println("Enter the Frequency (D for Daily, W for Weekly, M for Monthly, B for Biweekly, or Q for Quarterly): ");
+				input.nextLine();
+				category = input.nextLine();
+				for ( Book p : books ) {
+					if ( (p.getISBN()%10) == 8 || (p.getISBN()%10) == 9 ) {
+						if ( ((Periodical) p).getFrequency() == category.charAt(0) ) {
+							System.out.println(p);
+							System.out.println();
+						}
+					}
+				}
+				break;
+			default:
+				break;
+		}
 	}
 		
 	public void produceRandomBook (int numberOfBooks) {
 		while (numberOfBooks > 0) {
-//			Book book = book.get(new Random().nextInt(books.size()));
-			/*System.out.printf("%s %-20d%n", "ISBN: ", book.getISBN());
-				System.out.printf("%s %-20f%n", "Call Number: ", book.getCallNumber());
-				System.out.printf("%s %-20d%n", "Available: ", book.getAvailable());
-				System.out.printf("%s %-20d%n", "Total: ", book.getTotal());
-				System.out.printf("%s %-20s%n", "Title: ", book.getTitle());
-				System.out.printf("%s %-20s%n", "Authors: ", book.getAuthors());
-				System.out.printf("%s %-20d%n", "Year: ", book.getYear());
-				System.out.printf("%s %-20s%n", "Genre: ", book.getGenre());*/
-				
+			System.out.println( books.get(new Random().nextInt(books.size())) );	
+			System.out.println();
+			numberOfBooks--;
 		}	
 	}	
   
@@ -138,10 +167,11 @@ public class BookManagementSystem {
 		while( data.hasNextLine() ) {
 			line = data.nextLine();
 			String columns[] = line.split(";");
-			long type = Long.parseLong(columns[0])%10;
+			int type = (int) (Long.parseLong(columns[0])%10);
 			
 			if ( type == 0 || type == 1 ) {
-				books.add(new ChildrenBook(
+				books.add(
+					new ChildrenBook(
 						Long.parseLong(columns[0]),
 						columns[1],
 						Integer.parseInt(columns[2]),
@@ -149,34 +179,37 @@ public class BookManagementSystem {
 						columns[4],
 						columns[5],
 						columns[6].charAt(0)
-						)
+					)
 				);
 			} 
 			else if ( type == 2 || type == 3 ) {
-					books.add(new CookBook(
-							Long.parseLong(columns[0]),
-							columns[1],
-							Integer.parseInt(columns[2]),
-							Integer.parseInt(columns[3]),
-							columns[4],
-							columns[5],
-							columns[6].charAt(0)
-							)
-					);
+				books.add(
+					new CookBook(
+						Long.parseLong(columns[0]),
+						columns[1],
+						Integer.parseInt(columns[2]),
+						Integer.parseInt(columns[3]),
+						columns[4],
+						columns[5],
+						columns[6].charAt(0)
+					)
+				);
 			}
 			else if (type == 8 || type == 9 ) {
-				books.add(new Periodical(
+				books.add(
+					new Periodical(
 						Long.parseLong(columns[0]),
 						columns[1],
 						Integer.parseInt(columns[2]),
 						Integer.parseInt(columns[3]),
 						columns[4],
 						columns[5].charAt(0)
-						)
+					)
 				);
 			}
 			else {
-				books.add(new Paperback(
+				books.add(
+					new Paperback(
 						Long.parseLong(columns[0]),
 						columns[1],
 						Integer.parseInt(columns[2]),
@@ -185,7 +218,7 @@ public class BookManagementSystem {
 						columns[5],
 						Integer.parseInt(columns[6]),
 						columns[7].charAt(0)
-						)
+					)
 				);
 			}
 			
