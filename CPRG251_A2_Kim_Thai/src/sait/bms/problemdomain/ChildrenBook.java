@@ -34,6 +34,12 @@ public class ChildrenBook extends Book{
 	}
 
 	public String toString() {
-		return "ChildrenBook [authors=" + authors + ", format=" + format + "]";
+		return 	"ISBN: " + getISBN() + "\n"
+			  + "Call Number: " + getCallNumber() + "\n"
+			  + "Available: " + getAvailable() + "\n"
+			  + "Total: " + getTotal() + "\n"
+			  + "Title: " + getTitle() + "\n"
+			  + "Authors: " + getAuthors() + "\n"
+			  + "Format: " + ( ( getFormat() == 'P' ) ? "Picture book" : ( getFormat() == 'E' ) ? "Early Readers" : "Chapter book" );
 	}
 }
