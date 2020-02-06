@@ -43,6 +43,13 @@ public class Paperback extends Book {
 	}
 
 	public String toString() {
-		return "Paperback [authors=" + authors + ", year=" + year + ", genre=" + genre + "]";
+		return 	"ISBN: " + getISBN() + "\n"
+			  + "Call Number: " + getCallNumber() + "\n"
+			  + "Available: " + getAvailable() + "\n"
+			  + "Total: " + getTotal() + "\n"
+			  + "Title: " + getTitle() + "\n"
+			  + "Authors: " + getAuthors() + "\n"
+			  + "Year: " + getYear() + "\n"
+			  + "Genre: " + ( (getGenre() == 'A') ? "Adventure" : (getGenre() == 'D') ? "Drama" : (getGenre() == 'E') ? "Education" : (getGenre() == 'C') ? "Classic" : (getGenre() == 'F') ? "Fantasy" : "Science Fiction" );
 	}
 }

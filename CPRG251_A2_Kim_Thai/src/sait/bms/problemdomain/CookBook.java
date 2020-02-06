@@ -33,6 +33,12 @@ public class CookBook extends Book {
 	}
 	
 	public String toString() {
-		return "CookBook [publisher=" + publisher + ", diet=" + diet + "]";
+		return 	"ISBN: " + getISBN() + "\n"
+			  + "Call Number: " + getCallNumber() + "\n"
+			  + "Available: " + getAvailable() + "\n"
+			  + "Total: " + getTotal() + "\n"
+			  + "Title: " + getTitle() + "\n"
+			  + "Publisher: " + getPublisher() + "\n"
+			  + "Diet: " + ( (getDiet() == 'D') ? "Diabetic" : (getDiet() == 'V') ? "Vegetarian" : (getDiet() == 'G') ? "Gluten-free" : (getDiet() == 'I') ? "International" : "None" );
 	}
 }

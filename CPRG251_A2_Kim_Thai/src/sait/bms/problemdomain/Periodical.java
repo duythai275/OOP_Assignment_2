@@ -24,7 +24,12 @@ public class Periodical extends Book{
 	}
 	
 	public String toString() {
-		return "Periodical [frequency=" + frequency + "]";
+		return 	"ISBN: " + getISBN() + "\n"
+			  + "Call Number: " + getCallNumber() + "\n"
+			  + "Available: " + getAvailable() + "\n"
+			  + "Total: " + getTotal() + "\n"
+			  + "Title: " + getTitle() + "\n"
+			  + "Frequency: " + ( (getFrequency() == 'D') ? "Daily" : (getFrequency() == 'W') ? "Weekly" : (getFrequency() == 'M') ? "Monthly" : (getFrequency() == 'B') ? "Bimonthly" : "Quarterly" );
 	}
 	
 }
