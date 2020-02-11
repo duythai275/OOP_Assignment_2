@@ -1,6 +1,7 @@
 package sait.bms.managers;
 
 import sait.bms.problemdomain.*;
+
 import java.util.*;
 import java.io.*;
 
@@ -10,8 +11,16 @@ public class BookManagementSystem {
 	
 	// Single list for books
 	ArrayList<Book> books = new ArrayList<Book>();
+	
+	File file;
+	
+	public BookManagementSystem() {
+		System.out.print("Please enter the data file's path: ");
+		file = new File(input.nextLine());
+//		file = new File("res/books.txt");
+	}
 
-	File file = new File("res/books.txt");
+	
 			
 	public void displayMenu() throws IOException {
 		
@@ -59,6 +68,14 @@ public class BookManagementSystem {
 				break;
 			case 5:
 				System.out.println("Closing ...");
+				PrintWriter output = new PrintWriter(file);
+				for ( Book b : books ) {
+					if ( ( b.getISBN()%10 ) == 0 || ( b.getISBN()%10 ) == 1 ) output.println(b.getISBN()+";"+b.getCallNumber()+";"+b.getAvailable()+";"+b.getTotal()+";"+b.getTitle()+";"+((ChildrenBook) b).getAuthors()+";"+((ChildrenBook) b).getFormat());
+					else if ( ( b.getISBN()%10 ) == 2 || ( b.getISBN()%10 ) == 3 ) output.println(b.getISBN()+";"+b.getCallNumber()+";"+b.getAvailable()+";"+b.getTotal()+";"+b.getTitle()+";"+((CookBook) b).getPublisher()+";"+((CookBook) b).getDiet());
+					else if ( ( b.getISBN()%10 ) == 8 || ( b.getISBN()%10 ) == 9 ) output.println(b.getISBN()+";"+b.getCallNumber()+";"+b.getAvailable()+";"+b.getTotal()+";"+b.getTitle()+";"+((Periodical) b).getFrequency());
+					else output.println(b.getISBN()+";"+b.getCallNumber()+";"+b.getAvailable()+";"+b.getTotal()+";"+b.getTitle()+";"+((Paperback) b).getAuthors()+";"+((Paperback) b).getYear()+";"+((Paperback) b).getGenre());
+				}
+				output.close();
 				break;
 			default:
 				System.out.println("Please select options from 1 to 5");
@@ -95,11 +112,26 @@ public class BookManagementSystem {
 		
 	public void displayBookByType (int type) {
 		String category;
+		while ( type < 1 || type > 4 ) {
+			System.out.println("Please enter option from 1 to 4");
+			System.out.print("Enter type of book: ");
+			type = input.nextInt();
+		}
+		
 		switch(type) {
 			case 1: 
 				System.out.println("Enter the Format (P for Picture book, E for Early Readers, or C for Chapter book): ");
 				input.nextLine();
 				category = input.nextLine();
+				while ( category.length() > 1 || ( category.charAt(0) != 'P' && category.charAt(0) != 'E' && category.charAt(0) != 'C' ) ) { 
+					if ( category.length() > 1 ) {
+						System.out.println("Please enter 1 character only");
+					} else {
+						System.out.println("Wrong format. Please enter again: ");
+					}
+					System.out.println("Enter the Format (P for Picture book, E for Early Readers, or C for Chapter book): ");
+					category = input.nextLine();
+				}
 				for ( Book p : books ) {
 					if ( (p.getISBN()%10) == 0 || (p.getISBN()%10) == 1 ) {
 						if ( ((ChildrenBook) p).getFormat() == category.charAt(0) ) {
@@ -113,6 +145,15 @@ public class BookManagementSystem {
 				System.out.println("Enter the Diet (D for Diabetic, V for Vegetarian, G for Gluten-free, I for International, or N for None): ");
 				input.nextLine();
 				category = input.nextLine();
+				while ( category.length() > 1 || ( category.charAt(0) != 'D' && category.charAt(0) != 'V' && category.charAt(0) != 'G' && category.charAt(0) != 'I' && category.charAt(0) != 'N' ) ) { 
+					if ( category.length() > 1 ) {
+						System.out.println("Please enter 1 character only");
+					} else {
+						System.out.println("Wrong format. Please enter again: ");
+					}
+					System.out.println("Enter the Diet (D for Diabetic, V for Vegetarian, G for Gluten-free, I for International, or N for None): ");
+					category = input.nextLine();
+				}
 				for ( Book p : books ) {
 					if ( (p.getISBN()%10) == 2 || (p.getISBN()%10) == 3 ) {
 						if ( ((CookBook) p).getDiet() == category.charAt(0) ) {
@@ -126,6 +167,15 @@ public class BookManagementSystem {
 				System.out.println("Enter the Genre (A for Adventure, D for Drama, E for Education, C for Classic, F for Fantasy, or S for Science Fiction): ");
 				input.nextLine();
 				category = input.nextLine();
+				while ( category.length() > 1 || ( category.charAt(0) != 'A' && category.charAt(0) != 'D' && category.charAt(0) != 'E' && category.charAt(0) != 'C' && category.charAt(0) != 'F' && category.charAt(0) != 'S' ) ) { 
+					if ( category.length() > 1 ) {
+						System.out.println("Please enter 1 character only");
+					} else {
+						System.out.println("Wrong format. Please enter again: ");
+					}
+					System.out.println("Enter the Genre (A for Adventure, D for Drama, E for Education, C for Classic, F for Fantasy, or S for Science Fiction): ");
+					category = input.nextLine();
+				}
 				for ( Book p : books ) {
 					if ( (p.getISBN()%10) == 4 || (p.getISBN()%10) == 5 || (p.getISBN()%10) == 6 || (p.getISBN()%10) == 7 ) {
 						if ( ((Paperback) p).getGenre() == category.charAt(0) ) {
@@ -139,6 +189,15 @@ public class BookManagementSystem {
 				System.out.println("Enter the Frequency (D for Daily, W for Weekly, M for Monthly, B for Biweekly, or Q for Quarterly): ");
 				input.nextLine();
 				category = input.nextLine();
+				while ( category.length() > 1 || ( category.charAt(0) != 'D' && category.charAt(0) != 'W' && category.charAt(0) != 'M' && category.charAt(0) != 'B' && category.charAt(0) != 'Q' ) ) { 
+					if ( category.length() > 1 ) {
+						System.out.println("Please enter 1 character only");
+					} else {
+						System.out.println("Wrong format. Please enter again: ");
+					}
+					System.out.println("Enter the Frequency (D for Daily, W for Weekly, M for Monthly, B for Biweekly, or Q for Quarterly): ");
+					category = input.nextLine();
+				}
 				for ( Book p : books ) {
 					if ( (p.getISBN()%10) == 8 || (p.getISBN()%10) == 9 ) {
 						if ( ((Periodical) p).getFrequency() == category.charAt(0) ) {
@@ -149,7 +208,7 @@ public class BookManagementSystem {
 				}
 				break;
 			default:
-				break;
+				System.out.println("Please select options from 1 to 4");
 		}
 	}
 		
