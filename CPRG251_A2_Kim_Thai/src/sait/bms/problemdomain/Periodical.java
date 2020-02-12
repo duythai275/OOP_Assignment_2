@@ -4,12 +4,12 @@ public class Periodical extends Book{
 	private char frequency;
 	
 	/**
-	 * @param iSBN
-	 * @param callNumber
-	 * @param available
-	 * @param total
-	 * @param title
-	 * @param frequency
+	 * @param iSBN The long value is The iSBN of the Book
+	 * @param callNumber The integer value is The call number of the Book
+	 * @param available The integer value is The number of availability of the Book
+	 * @param total The integer value is The total number of the Book
+	 * @param title The string value is The title of the Book
+	 * @param frequency The char value is The frequency of the Book 
 	 */
 	public Periodical(long iSBN, String callNumber, int available, int total, String title, char frequency) {
 		super(iSBN, callNumber, available, total, title);
@@ -17,7 +17,8 @@ public class Periodical extends Book{
 	}
 
 	/**
-	 * @return the frequency
+	 * getFrequency method is a getter of frequency attribute in Book class
+	 * @return a value of frequency attribute of a Book object
 	 */
 	public char getFrequency() {
 		return frequency;

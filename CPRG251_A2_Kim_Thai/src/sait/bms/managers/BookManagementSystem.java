@@ -5,6 +5,14 @@ import sait.bms.problemdomain.*;
 import java.util.*;
 import java.io.*;
 
+/**
+ * This program reads data from text file, and checkout a book by its ISBN, 
+ * find book by title, display a specific type of books and produce list of books randomly.
+ * 
+ * @author Seulgi Kim, Thai Nguyen
+ * @version February 11, 2020
+ */
+
 public class BookManagementSystem {
 	
 	Scanner input = new Scanner(System.in);
@@ -17,13 +25,18 @@ public class BookManagementSystem {
 	public BookManagementSystem() {
 		System.out.print("Please enter the data file's path: ");
 		file = new File(input.nextLine());
-//		file = new File("res/books.txt");
+	//file = new File("res/books.txt");
 	}
 
-	
+	/**
+	 * displayMenu methods show options to checkout a book by ISBN,  
+	 * find book by title, display a specific type of books and produce list of books randomly.
+	 * @throws IOException Throw when the file could not be accessed
+	 */
 			
 	public void displayMenu() throws IOException {
 		
+		// call this method to store all books into book ArrayList
 		loadBook();
 		
 		int option = 0;
@@ -85,6 +98,11 @@ public class BookManagementSystem {
 		}
 	}
 	
+	/**
+	 * checkBookByIsbn method checks out book title and call number by its ISBN
+	 * 
+	 * @param isbn ISBN of book will check out books
+	 */
 	public void checkBookByIsbn (long isbn) {
 		while ( Long.toString(isbn).length() != 13 ) {
 			System.out.println("Please type 13 digits only");
@@ -99,6 +117,11 @@ public class BookManagementSystem {
 			}
 		}
 	}
+	/**
+	 * findBookByTitle method finds books by its title
+	 * 
+	 * @param title Title of book will find books
+	 */
 		
 	public void findBookByTitle (String title) {
 		System.out.println ("Matching books: ");
@@ -109,7 +132,13 @@ public class BookManagementSystem {
 			}
 		}	
 	}
-		
+	
+	/**
+	 * displayBookByType method displays books by type
+	 * 
+	 * @param type Type of book will display books
+	 */
+	
 	public void displayBookByType (int type) {
 		String category;
 		while ( type < 1 || type > 4 ) {
@@ -211,6 +240,12 @@ public class BookManagementSystem {
 				System.out.println("Please select options from 1 to 4");
 		}
 	}
+	
+	/**
+	 * produceRandonBook method produce number of books randomly
+	 * 
+	 * @param numberOfBooks The number to produce books
+	 */
 		
 	public void produceRandomBook (int numberOfBooks) {
 		while (numberOfBooks > 0) {
@@ -220,6 +255,12 @@ public class BookManagementSystem {
 		}	
 	}	
   
+	/**
+	 * loadBook method reads each line in text file and add books with attributes into books list
+	 *
+	 * @throws IOException Throw when the file could not be accessed
+	 */
+	
 	public void loadBook() throws IOException {
 		Scanner data = new Scanner(file); // read the text file
 		String line = "";
