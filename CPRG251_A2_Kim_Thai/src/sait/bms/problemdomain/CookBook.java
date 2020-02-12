@@ -5,13 +5,13 @@ public class CookBook extends Book {
 	private char diet;
 	
 	/**
-	 * @param iSBN
-	 * @param callNumber
-	 * @param available
-	 * @param total
-	 * @param title
-	 * @param publisher
-	 * @param diet
+	 * @param iSBN The long value is The iSBN of the Book
+	 * @param callNumber The integer value is The call number of the Book
+	 * @param available The integer value is The number of availability of the Book
+	 * @param total The integer value is The total number of the Book
+	 * @param title The string value is The title of the Book
+	 * @param publisher The string value is The publisher of the Book
+	 * @param diet The char value is The diet of the Book
 	 */
 	public CookBook(long iSBN, String callNumber, int available, int total, String title, String publisher, char diet) {
 		super(iSBN, callNumber, available, total, title);
@@ -20,13 +20,15 @@ public class CookBook extends Book {
 	}
 	
 	/**
-	 * @return the publisher
+	 * getPublisher method is a getter of publisher attribute in Book class
+	 * @return a value of publisher attribute of a Book object
 	 */
 	public String getPublisher() {
 		return publisher;
 	}
 	/**
-	 * @return the diet
+	 * getDiet method is a getter of diet attribute in Book class
+	 * @return a value of diet attribute of a Book object
 	 */
 	public char getDiet() {
 		return diet;
