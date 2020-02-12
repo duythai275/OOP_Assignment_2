@@ -5,13 +5,13 @@ public class ChildrenBook extends Book{
 	private char format;
 	
 	/**
-	 * @param iSBN
-	 * @param callNumber
-	 * @param available
-	 * @param total
-	 * @param title
-	 * @param authors
-	 * @param format
+	 * @param iSBN The long value is The iSBN of the Book
+	 * @param callNumber The integer value is The call number of the Book
+	 * @param available The integer value is The number of availability of the Book
+	 * @param total The integer value is The total number of the Book
+	 * @param title The string value is The title of the Book
+	 * @param authors The string value is The authors of the Book
+	 * @param format The char value is The format of the Book
 	 */
 	public ChildrenBook(long iSBN, String callNumber, int available, int total, String title, String authors,
 			char format) {
@@ -21,13 +21,15 @@ public class ChildrenBook extends Book{
 	}
 	
 	/**
-	 * @return the authors
+	 * getAuthors method is a getter of authors attribute in Book class
+	 * @return a value of authors attribute of a Book object
 	 */
 	public String getAuthors() {
 		return authors;
 	}
 	/**
-	 * @return the format
+	 * getFormat method is a getter of format attribute in Book class
+	 * @return a value of format attribute of a Book object
 	 */
 	public char getFormat() {
 		return format;

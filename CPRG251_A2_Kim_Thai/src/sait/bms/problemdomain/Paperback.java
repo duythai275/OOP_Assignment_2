@@ -6,14 +6,14 @@ public class Paperback extends Book {
 	private char genre;
 	
 	/**
-	 * @param iSBN
-	 * @param callNumber
-	 * @param available
-	 * @param total
-	 * @param title
-	 * @param authors
-	 * @param year
-	 * @param genre
+	 * @param iSBN The long value is The iSBN of the Book
+	 * @param callNumber The integer value is The call number of the Book
+	 * @param available The integer value is The number of availability of the Book
+	 * @param total The integer value is The total number of the Book
+	 * @param title The string value is The title of the Book
+	 * @param authors The string value is The authors of the Book
+	 * @param year The integer value is The year of the Book 
+	 * @param genre The char value is The year of the Book
 	 */
 	public Paperback(long iSBN, String callNumber, int available, int total, String title, String authors, int year,
 			char genre) {
@@ -24,19 +24,22 @@ public class Paperback extends Book {
 	}
 	
 	/**
-	 * @return the authors
+	 * getAuthors method is a getter of authors attribute in Book class
+	 * @return a value of authors attribute of a Book object
 	 */
 	public String getAuthors() {
 		return authors;
 	}
 	/**
-	 * @return the year
+	 * getYear method is a getter of year attribute in Book class
+	 * @return a value of year attribute of a Book object
 	 */
 	public int getYear() {
 		return year;
 	}
 	/**
-	 * @return the genre
+	 * getGenre method is a getter of genre attribute in Book class
+	 * @return a value of genre attribute of a Book object
 	 */
 	public char getGenre() {
 		return genre;
