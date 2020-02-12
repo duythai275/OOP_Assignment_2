@@ -1,10 +1,21 @@
 package sait.bms.problemdomain;
 
+/**
+ * The program is a class for identifying "ChildrenBook" objects
+ * that inherits from "Book"
+ * 
+ * @author Seulgi Kim, Thai Nguyen
+ * @version February 11, 2020
+ */
 public class ChildrenBook extends Book{
-	private String authors;
-	private char format;
+	/**
+	 * Two private instance fields
+	 */
+	private String authors; //authors of Children book 
+	private char format; //format of Children book
 	
 	/**
+	 * The constructor of the ChildrenBook class
 	 * @param iSBN The long value is The iSBN of the Book
 	 * @param callNumber The integer value is The call number of the Book
 	 * @param available The integer value is The number of availability of the Book
@@ -34,7 +45,10 @@ public class ChildrenBook extends Book{
 	public char getFormat() {
 		return format;
 	}
-
+	/**
+	 * toString is used to print information of a ChildrenBook object
+	 * by vertical headers
+	 */
 	public String toString() {
 		return 	"ISBN: " + getISBN() + "\n"
 			  + "Call Number: " + getCallNumber() + "\n"
