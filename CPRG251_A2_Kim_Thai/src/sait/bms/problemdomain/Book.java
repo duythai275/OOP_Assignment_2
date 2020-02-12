@@ -6,7 +6,6 @@ package sait.bms.problemdomain;
  * @author Seulgi Kim, Thai Nguyen
  * @version February 11, 2020
  */
-
 public class Book {
 	/**
 	 * Five private instance fields
@@ -68,7 +67,9 @@ public class Book {
 	public String getTitle() {
 		return title;
 	}
-
+	/**
+	 * toString is print information of a Book object
+	 */
 	public String toString() {
 		return "Book [ISBN=" + ISBN + ", callNumber=" + callNumber + ", available=" + available + ", total=" + total
 				+ ", title=" + title + "]";

@@ -1,7 +1,6 @@
 package sait.bms.managers;
 
 import sait.bms.problemdomain.*;
-
 import java.util.*;
 import java.io.*;
 
@@ -12,28 +11,30 @@ import java.io.*;
  * @author Seulgi Kim, Thai Nguyen
  * @version February 11, 2020
  */
-
 public class BookManagementSystem {
 	
-	Scanner input = new Scanner(System.in);
+	Scanner input = new Scanner(System.in); // this scanner variable is for entering
 	
 	// Single list for books
-	ArrayList<Book> books = new ArrayList<Book>();
+	ArrayList<Book> books = new ArrayList<Book>(); // this list is to store all books from text file
 	
-	File file;
+	File file; // this one is used to contain the file
 	
+	/**
+	 * the constructor is used to identify the file path
+	 * and 
+	 */
 	public BookManagementSystem() {
 		System.out.print("Please enter the data file's path: ");
 		file = new File(input.nextLine());
-	//file = new File("res/books.txt");
 	}
 
 	/**
 	 * displayMenu methods show options to checkout a book by ISBN,  
 	 * find book by title, display a specific type of books and produce list of books randomly.
+	 * Before closing the program, data will be persisted to data file
 	 * @throws IOException Throw when the file could not be accessed
 	 */
-			
 	public void displayMenu() throws IOException {
 		
 		// call this method to store all books into book ArrayList
@@ -122,7 +123,6 @@ public class BookManagementSystem {
 	 * 
 	 * @param title Title of book will find books
 	 */
-		
 	public void findBookByTitle (String title) {
 		System.out.println ("Matching books: ");
 		for (Book book : books) {
@@ -138,7 +138,6 @@ public class BookManagementSystem {
 	 * 
 	 * @param type Type of book will display books
 	 */
-	
 	public void displayBookByType (int type) {
 		String category;
 		while ( type < 1 || type > 4 ) {
@@ -246,7 +245,6 @@ public class BookManagementSystem {
 	 * 
 	 * @param numberOfBooks The number to produce books
 	 */
-		
 	public void produceRandomBook (int numberOfBooks) {
 		while (numberOfBooks > 0) {
 			System.out.println( books.get(new Random().nextInt(books.size())) );	
@@ -260,7 +258,6 @@ public class BookManagementSystem {
 	 *
 	 * @throws IOException Throw when the file could not be accessed
 	 */
-	
 	public void loadBook() throws IOException {
 		Scanner data = new Scanner(file); // read the text file
 		String line = "";
