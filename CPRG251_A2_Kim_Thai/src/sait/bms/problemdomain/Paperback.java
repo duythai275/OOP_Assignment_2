@@ -1,11 +1,22 @@
 package sait.bms.problemdomain;
 
+/**
+ * The program is a class for identifying "Paperback" objects
+ * that inherits from "Book"
+ * 
+ * @author Seulgi Kim, Thai Nguyen
+ * @version February 11, 2020
+ */
 public class Paperback extends Book {
+	/**
+	 * Three private instance fields
+	 */
 	private String authors;
 	private int year;
 	private char genre;
 	
 	/**
+	 * The constructor of the Paperback class
 	 * @param iSBN The long value is The iSBN of the Book
 	 * @param callNumber The integer value is The call number of the Book
 	 * @param available The integer value is The number of availability of the Book
@@ -44,7 +55,10 @@ public class Paperback extends Book {
 	public char getGenre() {
 		return genre;
 	}
-
+	/**
+	 * toString is used to print information of a Paperback object
+	 * by vertical headers
+	 */
 	public String toString() {
 		return 	"ISBN: " + getISBN() + "\n"
 			  + "Call Number: " + getCallNumber() + "\n"
